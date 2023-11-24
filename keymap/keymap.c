@@ -16,11 +16,11 @@
 // first letter  : half   : l=left   r=right
 // second letter : row    : h=higher l=lower
 //
-// in a real keyboard:
+// on a real keyboard:
 // lh1 lh2 lh3  rh1 rh2 rh3
 //     ll2 ll3  rl1 rl2
 //
-// in mapping:
+// on mapping:
 // lh1 xxx xxx  rh3 ll2 lh2
 // rh2 rl2 ll3  lh3 rh1 rl1
 
@@ -36,6 +36,17 @@
 #define ALT_R RALT_T(KC_R)
 #define GUI_I RGUI_T(KC_I)
 
+#define OSM_SFT OSM(MOD_LSFT)
+
+// Combos.
+
+const uint16_t PROGMEM esc_combo[] = {OSM_SFT, KC_SPACE, COMBO_END};
+const uint16_t PROGMEM ret_combo[] = {OSM_SFT, OSL(3), COMBO_END};
+
+combo_t key_combos[] = {
+    COMBO(esc_combo, KC_ESC),
+    COMBO(ret_combo, KC_ENTER),
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_5x6(
@@ -46,14 +57,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
                                     KC_F11, KC_F12,                                 KC_UP, KC_DOWN,
 
-                                    KC_A   , KC_B   , KC_C   ,    KC_G   , KC_H   , KC_I   , 
-                                    KC_D   , KC_E   , KC_F   ,    KC_K   , KC_L   , KC_M
+                                    OSM_SFT ,  KC_NO  , KC_NO  ,    KC_SPC , KC_NO  , OSL(2), 
+                                    OSL(3)  ,  KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO
   ),
-
-                                   // OSM(MOD_LSFT), OSL(2), KC_NO,                  KC_MINS, KC_EQL,
-                                        // KC_ESC, KC_SPC,      KC_ENT, KC_BSPC,
-                                        // KC_LALT, MO(1),      MO(1), KC_RALT,
-                                      // KC_LCTL, KC_LGUI,      KC_RGUI, KC_RCTL),
 
   [1] = LAYOUT_5x6(
     KC_MUTE, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10, KC_F11,
