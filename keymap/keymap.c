@@ -2,6 +2,19 @@
 
 #include QMK_KEYBOARD_H
 
+// Disable glow effects to save space
+#undef RGBLIGHT_ANIMATIONS
+#undef RGBLIGHT_EFFECT_BREATHING
+#undef RGBLIGHT_EFFECT_RAINBOW_MOOD
+#undef RGBLIGHT_EFFECT_RAINBOW_SWIRL
+#undef RGBLIGHT_EFFECT_SNAKE
+#undef RGBLIGHT_EFFECT_KNIGHT
+#undef RGBLIGHT_EFFECT_CHRISTMAS
+#undef RGBLIGHT_EFFECT_STATIC_GRADIENT
+#undef RGBLIGHT_EFFECT_RGB_TEST
+#undef RGBLIGHT_EFFECT_ALTERNATING
+#undef RGBLIGHT_EFFECT_TWINKLE
+
 // TODO fixup physical mapping of thumb clusters
 
 
@@ -41,73 +54,99 @@
 // Combos.
 
 const uint16_t PROGMEM esc_combo[] = {OSM_SFT, KC_SPACE, COMBO_END};
-const uint16_t PROGMEM ret_combo[] = {OSM_SFT, OSL(3), COMBO_END};
+const uint16_t PROGMEM ret_combo[] = {OSM_SFT, OSL(2), COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(esc_combo, KC_ESC),
     COMBO(ret_combo, KC_ENTER),
 };
 
+#define __ KC_TRNS
+#define XX KC_NO
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_5x6(
-                 QK_BOOT, KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, QK_BOOT,
-                 XXXXXXX, KC_QUOT, KC_COMM, KC_U,   KC_C,  KC_V,      KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
-                 KC_EQL , GUI_A,   ALT_O,   LT3_E,  CTL_S, KC_G,      KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
-                 KC_NO  , KC_SCLN, KC_X,    KC_DOT, KC_W,  KC_Z,      KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   KC_NO,
+       KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
+       XXXXXXX, KC_QUOT, KC_COMM,    KC_U,   KC_C,  KC_V,     KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
+       KC_EQL ,   GUI_A,   ALT_O,   LT3_E,  CTL_S,  KC_G,     KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
+       QK_BOOT, KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   QK_BOOT,
 
-                                    KC_F11, KC_F12,                                 KC_UP, KC_DOWN,
+                          KC_F11, KC_F12,                                 KC_UP, KC_DOWN,
 
-                                    OSM_SFT ,  KC_NO  , KC_NO  ,    KC_SPC , KC_NO  , OSL(2), 
-                                    OSL(3)  ,  KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO
-  ),
+                          OSM_SFT ,  KC_NO  , KC_NO  ,    KC_SPC , KC_NO  , OSL(2), 
+                          KC_ENTER,  KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO),
 
-  [1] = LAYOUT_5x6(
-    KC_MUTE, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10, KC_F11,
-    KC_VOLU, KC_NO,   KC_NO,   KC_UP,   KC_NO,   KC_NO,      KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS, KC_F12,
-    KC_VOLD, KC_NO, KC_LEFT, KC_DOWN, KC_RGHT, KC_CAPS,      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL, KC_PAUS,
-    KC_LSFT, KC_NO,   KC_LT, KC_LCBR, KC_LBRC, KC_LPRN,      KC_RPRN, KC_RBRC, KC_RCBR, KC_GT,   KC_NO,  KC_RSFT,
-                              KC_F13, KC_PSCR,                        KC_APP,  KC_SYRQ,
-                          OSM(MOD_LALT), OSM(MOD_LCTL),      MO(2), KC_DEL,
-                                      KC_TRNS, KC_TRNS,      KC_TRNS, KC_TRNS,
-                                KC_TRNS, OSM(MOD_LGUI),      OSM(MOD_RGUI), KC_TRNS),
+  [1] = LAYOUT_5x6( // qwerty for russian
+       KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
+       XXXXXXX, KC_QUOT, KC_COMM,    KC_U,   KC_C,  KC_V,     KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
+       KC_EQL ,   GUI_A,   ALT_O,   LT3_E,  CTL_S,  KC_G,     KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
+       KC_NO  , KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   KC_NO,
 
-  [2] = LAYOUT_5x6(
-      KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO,
-      KC_NO, KC_NO,   KC_NO, KC_MS_U,   KC_NO, KC_WH_U,      KC_WH_U, KC_ACL2, KC_ACL0, KC_ACL1, KC_NO, KC_NO,
-      KC_NO, KC_NO, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,      KC_WH_D, KC_BTN1, KC_BTN2, KC_BTN3, KC_NO, KC_NO,
-    KC_LSFT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO,
-                               KC_NO,   KC_NO,                        KC_NO,   KC_NO,
-                                        KC_ESC, KC_SPC,      KC_NO, KC_NO,
-                                        KC_LALT, KC_NO,      KC_NO, KC_NO,
-                                        KC_LCTL, KC_NO,      KC_NO, KC_NO),
+                          KC_F11, KC_F12,                                 KC_UP, KC_DOWN,
 
-  [3] = LAYOUT_5x6(
-                 KC_GRV,  KC_1, KC_2, KC_3, KC_4, KC_5,      KC_6, KC_7, KC_8,    KC_9,   KC_0,    KC_RBRC,
-                 KC_TAB,  KC_Q, KC_W, KC_E, KC_R, KC_T,      KC_Y, KC_U, KC_I,    KC_O,   KC_P,    KC_LBRC,
-                 KC_BSLS, KC_A, KC_S, KC_D, KC_F, KC_G,      KC_H, KC_J, KC_K,    KC_L,   KC_SCLN, KC_QUOT,
-                 KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B,      KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
-                    OSM(MOD_LCTL), OSM(MOD_LALT),                  KC_MINS, KC_EQL,
-                                        KC_ESC, KC_SPC,      KC_ENT, KC_BSPC,
-                                        KC_LALT, MO(1),      MO(1), KC_RALT,
-                                      KC_LCTL, KC_LGUI,      KC_RGUI, KC_RCTL),
+                                 __ ,     __  ,    __  ,       __  ,    __  ,    __, 
+                                 __ ,     __  ,    __  ,       __  ,    __  ,    __),
+
+  [2] = LAYOUT_5x6( // SYMBOLS
+        XX,      XX,        XX,       XX,      XX,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,   KC_DOT, KC_LCBR,      XX,       XX,      KC_RCBR,  XX,       KC_PIPE, XX,      XX,
+        XX,  KC_GRV,  KC_SLASH,  KC_LPRN, KC_LBRC,  KC_DEL,       KC_BSPC, KC_RBRC,  KC_RPRN,  KC_BSLS, KC_COLN, XX,
+        XX,      XX,        XX,       XX,      XX,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
+                           XX, XX,                                                XX, XX,
+                             KC_LSFT,     XX  ,    XX  ,       XX  ,    XX  ,    XX, 
+                                 XX ,     XX  ,    XX  ,       XX  ,    XX  ,    XX),
+
+  [3] = LAYOUT_5x6( // NUMBERS - NAVIGATION
+        XX,      XX,        XX,       XX,      XX,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,      KC_7,     KC_8,    KC_9,      XX,       KC_HOME, KC_PGUP,  KC_UP,    KC_PGDN, KC_END,  XX,
+        XX,    KC_0,      KC_4,     KC_5,    KC_6,  KC_DEL,       KC_BSPC, KC_LEFT,  KC_ENTER, KC_RGHT, XX,      XX,
+        XX,    KC_0,      KC_1,     KC_2,    KC_3,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
+                           XX, XX,                                                XX, XX,
+                             KC_LSFT,     XX  ,    XX  ,       XX  ,    XX  ,    XX, 
+                                 XX ,     XX  ,    XX  ,       XX  ,    XX  ,    XX),
 
   [4] = LAYOUT_5x6(
-    KC_MUTE, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10, KC_F11,
-    KC_VOLU, KC_NO,   KC_NO,   KC_UP,   KC_NO,   KC_NO,      KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS, KC_F12,
-    KC_VOLD, KC_NO, KC_LEFT, KC_DOWN, KC_RGHT, KC_CAPS,      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL, KC_PAUS,
-    KC_LSFT, KC_NO,   KC_LT, KC_LCBR, KC_LBRC, KC_LPRN,      KC_RPRN, KC_RBRC, KC_RCBR, KC_GT,   KC_NO,  KC_RSFT,
-                              KC_F13, KC_PSCR,                        KC_APP,  KC_SYRQ,
-                          OSM(MOD_LALT), OSM(MOD_LCTL),      MO(2), KC_DEL,
-                                      KC_TRNS, KC_TRNS,      KC_TRNS, KC_TRNS,
-                                KC_TRNS, OSM(MOD_LGUI),      OSM(MOD_RGUI), KC_TRNS),
+       KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
+       XXXXXXX, KC_QUOT, KC_COMM,    KC_U,   KC_C,  KC_V,     KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
+       KC_EQL ,   GUI_A,   ALT_O,   LT3_E,  CTL_S,  KC_G,     KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
+       KC_NO  , KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   KC_NO,
+
+                          KC_F11, KC_F12,                                 KC_UP, KC_DOWN,
+
+                          OSM_SFT ,  KC_NO  , KC_NO  ,    KC_SPC , KC_NO  , OSL(2), 
+                          OSL(3)  ,  KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO),
 
   [5] = LAYOUT_5x6(
-      KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO,
-      KC_NO, KC_NO,   KC_NO, KC_MS_U,   KC_NO, KC_WH_U,      KC_WH_U, KC_ACL2, KC_ACL0, KC_ACL1, KC_NO, KC_NO,
-      KC_NO, KC_NO, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,      KC_WH_D, KC_BTN1, KC_BTN2, KC_BTN3, KC_NO, KC_NO,
-    KC_LSFT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO,
-                               KC_NO,   KC_NO,                        KC_NO,   KC_NO,
-                                        KC_ESC, KC_SPC,      KC_NO, KC_NO,
-                                        KC_LALT, KC_NO,      KC_NO, KC_NO,
-                                        KC_LCTL, KC_NO,      KC_NO, KC_NO)
+       KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
+       XXXXXXX, KC_QUOT, KC_COMM,    KC_U,   KC_C,  KC_V,     KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
+       KC_EQL ,   GUI_A,   ALT_O,   LT3_E,  CTL_S,  KC_G,     KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
+       KC_NO  , KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   KC_NO,
+
+                          KC_F11, KC_F12,                                 KC_UP, KC_DOWN,
+
+                          OSM_SFT ,  KC_NO  , KC_NO  ,    KC_SPC , KC_NO  , OSL(2), 
+                          OSL(3)  ,  KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO),
+
+  [6] = LAYOUT_5x6(
+       KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
+       XXXXXXX, KC_QUOT, KC_COMM,    KC_U,   KC_C,  KC_V,     KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
+       KC_EQL ,   GUI_A,   ALT_O,   LT3_E,  CTL_S,  KC_G,     KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
+       KC_NO  , KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   KC_NO,
+
+                          KC_F11, KC_F12,                                 KC_UP, KC_DOWN,
+
+                          OSM_SFT ,  KC_NO  , KC_NO  ,    KC_SPC , KC_NO  , OSL(2), 
+                          OSL(3)  ,  KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO),
+  
+  [7] = LAYOUT_5x6(
+       KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
+       XXXXXXX, KC_QUOT, KC_COMM,    KC_U,   KC_C,  KC_V,     KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
+       KC_EQL ,   GUI_A,   ALT_O,   LT3_E,  CTL_S,  KC_G,     KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
+       KC_NO  , KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   KC_NO,
+
+                          KC_F11, KC_F12,                                 KC_UP, KC_DOWN,
+
+                          OSM_SFT ,  KC_NO  , KC_NO  ,    KC_SPC , KC_NO  , OSL(2), 
+                          OSL(3)  ,  KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO)
+
 };
