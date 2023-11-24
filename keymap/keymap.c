@@ -23,14 +23,25 @@
 // in mapping:
 // lh1 xxx xxx  rh3 ll2 lh2
 // rh2 rl2 ll3  lh3 rh1 rl1
- 
+
+// Home-row mods.
+//
 #define GUI_A LGUI_T(KC_A)
+#define ALT_O LALT_T(KC_O)
+#define LT3_E LT(3, KC_E)
+#define CTL_S LCTL_T(KC_S)
+//
+#define CTL_N RCTL_T(KC_N)
+#define LT3_T LT(3, KC_T)
+#define ALT_R RALT_T(KC_R)
+#define GUI_I RGUI_T(KC_I)
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_5x6(
                  QK_BOOT, KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, QK_BOOT,
                  XXXXXXX, KC_QUOT, KC_COMM, KC_U,   KC_C,  KC_V,      KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
-                 KC_EQL , GUI_A,   KC_O,    KC_E,   KC_S,  KC_G,      KC_B,  KC_N,  KC_T,  KC_R,  KC_I,   KC_MINUS,
+                 KC_EQL , GUI_A,   ALT_O,   LT3_E,  CTL_S, KC_G,      KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
                  KC_NO  , KC_SCLN, KC_X,    KC_DOT, KC_W,  KC_Z,      KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   KC_NO,
 
                                     KC_F11, KC_F12,                                 KC_UP, KC_DOWN,
