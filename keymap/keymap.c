@@ -37,7 +37,7 @@
 // lh1 xxx xxx  rh3 ll2 lh2
 // rh2 rl2 ll3  lh3 rh1 rl1
 
-// Home-row mods.
+// Home-row mods (Boo).
 //
 #define GUI_A LGUI_T(KC_A)
 #define ALT_O LALT_T(KC_O)
@@ -48,6 +48,18 @@
 #define LT3_T LT(3, KC_T)
 #define ALT_R RALT_T(KC_R)
 #define GUI_I RGUI_T(KC_I)
+
+// Home-row mods (qwerty).
+//
+#define GUI_A LGUI_T(KC_A)
+#define ALT_S LALT_T(KC_S)
+#define LT3_D LT(3, KC_D)
+#define CTL_F LCTL_T(KC_F)
+//
+#define CTL_J RCTL_T(KC_J)
+#define LT3_K LT(3, KC_K)
+#define ALT_L RALT_T(KC_L)
+#define GUI_SCLN RGUI_T(KC_SCLN)
 
 #define OSM_SFT OSM(MOD_LSFT)
 
@@ -64,6 +76,15 @@ combo_t key_combos[] = {
 #define __ KC_TRNS
 #define XX KC_NO
 
+#define SFT_1 LSFT(KC_1)
+#define SFT_2 LSFT(KC_2)
+#define SFT_3 LSFT(KC_3)
+#define SFT_4 LSFT(KC_4)
+#define SFT_5 LSFT(KC_5)
+#define SFT_6 LSFT(KC_6)
+#define SFT_7 LSFT(KC_7)
+#define SFT_8 LSFT(KC_8)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_5x6(
        KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
@@ -76,11 +97,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           OSM_SFT ,  KC_NO  , KC_NO  ,    KC_SPC , KC_NO  , OSL(2), 
                           KC_ENTER,  KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO),
 
-  [1] = LAYOUT_5x6( // qwerty for russian
-       KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
-       XXXXXXX, KC_QUOT, KC_COMM,    KC_U,   KC_C,  KC_V,     KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
-       KC_EQL ,   GUI_A,   ALT_O,   LT3_E,  CTL_S,  KC_G,     KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
-       KC_NO  , KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   KC_NO,
+  [1] = LAYOUT_5x6( // qwerty for Russian
+       KC_ESC ,   SFT_1,   SFT_2,   SFT_3,  SFT_4, SFT_5,     SFT_6, SFT_7, SFT_8,   XX,     KC_MINUS, KC_RBRC,
+           XX ,    KC_Q,    KC_W,    KC_E,   KC_R,  KC_T,     KC_Y,  KC_U,  KC_I,    KC_O,   KC_P,     KC_LBRC,
+       KC_GRV ,   GUI_A,   ALT_S,   LT3_D,  CTL_F,  KC_G,     KC_H,  CTL_J, LT3_K,   ALT_L,  GUI_SCLN, KC_QUOTE,
+           XX ,    KC_Z,    KC_X,    KC_C,   KC_V,  KC_B,     KC_N,  KC_M,  KC_COMM, KC_DOT, KC_SLSH,  KC_NO,
 
                           KC_F11, KC_F12,                                 KC_UP, KC_DOWN,
 
