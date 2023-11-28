@@ -95,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           KC_F11, KC_F12,                                 KC_UP, KC_DOWN,
 
                           OSM_SFT ,  KC_NO  , KC_NO  ,    KC_SPC , KC_NO  , OSL(2), 
-                          KC_ENTER,  KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO),
+                          KC_ENTER,  OSL(4) , KC_NO  ,    KC_NO  , KC_NO  , KC_NO),
 
   [1] = LAYOUT_5x6( // qwerty for Russian
        KC_ESC ,   SFT_1,   SFT_2,   SFT_3,  SFT_4, SFT_5,     SFT_6, SFT_7, SFT_8,   XX,     KC_MINUS, KC_RBRC,
@@ -121,21 +121,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XX,      XX,        XX,       XX,      XX,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
         XX,      XX,      KC_7,     KC_8,    KC_9,      XX,       KC_HOME, KC_PGUP,  KC_UP,    KC_PGDN, KC_END,  XX,
         XX,    KC_0,      KC_4,     KC_5,    KC_6,  KC_DEL,       KC_BSPC, KC_LEFT,  KC_ENTER, KC_RGHT, XX,      XX,
-        XX,    KC_0,      KC_1,     KC_2,    KC_3,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,    KC_0,      KC_1,     KC_2,    KC_3,      XX,       XX,      KC_TAB,   KC_DOWN,  XX,      XX,      XX,
                            XX, XX,                                                XX, XX,
                              KC_LSFT,     XX  ,    XX  ,       XX  ,    XX  ,    XX, 
                                  XX ,     XX  ,    XX  ,       XX  ,    XX  ,    XX),
 
-  [4] = LAYOUT_5x6(
-       KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
-       XXXXXXX, KC_QUOT, KC_COMM,    KC_U,   KC_C,  KC_V,     KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
-       KC_EQL ,   GUI_A,   ALT_O,   LT3_E,  CTL_S,  KC_G,     KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
-       KC_NO  , KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   KC_NO,
-
-                          KC_F11, KC_F12,                                 KC_UP, KC_DOWN,
-
-                          OSM_SFT ,  KC_NO  , KC_NO  ,    KC_SPC , KC_NO  , OSL(2), 
-                          OSL(3)  ,  KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO),
+  [4] = LAYOUT_5x6( // brightness volume keeb-rgb
+        XX,      XX,   RGB_VAI,  RGB_M_P,      XX,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX, RGB_SAD,   RGB_TOG,  RGB_SAI,      XX,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,   RGB_VAD,       XX,      XX,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
+                           XX, XX,                                                XX, XX,
+                             KC_LSFT,     XX  ,    XX  ,       XX  ,    XX  ,    XX, 
+                                 XX ,     XX  ,    XX  ,       XX  ,    XX  ,    XX),
 
   [5] = LAYOUT_5x6(
        KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
