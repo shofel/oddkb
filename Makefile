@@ -3,8 +3,8 @@
 
 qmk_dir = vial-qmk
 
-keyboard = handwired/dactyl_manuform/5x6
-keymap = oddkb
+keyboard = handwired/dactyl_manuform/5x6_5
+keymap = KEYMAP
 target = avrdude
 
 keymap_path = ${qmk_dir}/keyboards/${keyboard}/keymaps/${keymap}/
