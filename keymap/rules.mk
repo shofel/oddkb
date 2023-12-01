@@ -6,9 +6,11 @@ LTO_ENABLE = yes
 # 2952 bytes
 QMK_SETTINGS = no          # Vial tab
 # 2144 bytes
-MOUSEKEY_ENABLE = yes      # Mouse keys
+MOUSEKEY_ENABLE = no       # Mouse keys
 # 544 bytes
 EXTRAKEY_ENABLE = yes      # Audio control and System control
+
+DIGITIZER_ENABLE = no
 
 # each of the following features take extra space
 # in three steps
