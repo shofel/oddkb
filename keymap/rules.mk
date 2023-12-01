@@ -12,6 +12,9 @@ EXTRAKEY_ENABLE = yes      # Audio control and System control
 
 DIGITIZER_ENABLE = no
 
+RGBLIGHT_ENABLE = yes
+RGBLIGHT_DRIVER = ws2812
+
 # each of the following features take extra space
 # in three steps
 # - the QMK feature (enables here)

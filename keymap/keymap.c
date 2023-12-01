@@ -2,8 +2,8 @@
 
 #include QMK_KEYBOARD_H
 
-// Disable glow effects to save space
 // In hope for the backlight :D
+// Disable glow effects to save space
 #undef RGBLIGHT_ANIMATIONS
 #undef RGBLIGHT_EFFECT_BREATHING
 #undef RGBLIGHT_EFFECT_RAINBOW_MOOD

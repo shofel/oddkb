@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define USE_SERIAL
 
-#define MASTER_LEFT
+#define MASTER_RIGHT
 #define SPLIT_USB_DETECT
 #define SPLIT_USB_TIMEOUT 2500
 
@@ -38,3 +38,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VIAL_KEY_OVERRIDE_ENTRIES 8
 #define VIAL_TAP_DANCE_ENTRIES 8
 #define VIAL_COMBO_ENTRIES 8
+
+
+// Lighting
+#define WS2812_DI_PIN D1
+#define RGBLED_NUM 18
+#define RGBLED_SPLIT { 9, 9 }
+#define RGBLIGHT_DEFAULT_HUE 85
+#define RGBLIGHT_SPLIT
+#define RGBLIGHT_SLEEP
