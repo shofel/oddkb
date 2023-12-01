@@ -18,9 +18,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define USE_SERIAL
 
-#define MASTER_RIGHT
+// @see https://docs.qmk.fm/#/feature_split_keyboard?id=handedness-by-eeprom
+#define EE_HANDS
 #define SPLIT_USB_DETECT
-#define SPLIT_USB_TIMEOUT 2500
 
 
 #define VIAL_KEYBOARD_UID {0x8A, 0x86, 0x65, 0x9D, 0x13, 0xE1, 0xCB, 0x81}
