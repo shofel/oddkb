@@ -1,5 +1,5 @@
-VIA_ENABLE = yes
-VIAL_ENABLE = yes
+# VIA_ENABLE = yes
+# VIAL_ENABLE = yes
 
 LTO_ENABLE = yes
 
@@ -8,9 +8,9 @@ QMK_SETTINGS = no          # Vial tab
 # 2144 bytes
 MOUSEKEY_ENABLE = no       # Mouse keys
 # 544 bytes
-EXTRAKEY_ENABLE = yes      # Audio control and System control
+EXTRAKEY_ENABLE = no       # Audio control and System control
 
-DIGITIZER_ENABLE = no
+DIGITIZER_ENABLE = yes
 
 RGBLIGHT_ENABLE = yes
 RGBLIGHT_DRIVER = ws2812
@@ -38,7 +38,7 @@ KEY_OVERRIDE_ENABLE = no
 # with 1 vial entry   : 1676 (+980)
 # with 2 vial entries : 1720 (+44)
 # with 8 vial entries : 1714 (-6)
-TAP_DANCE_ENABLE = yes
+TAP_DANCE_ENABLE = no
 
 # 900 bytes + 
 # qmk feature         : 924

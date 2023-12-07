@@ -46,9 +46,9 @@
 
 const uint16_t PROGMEM esc_combo[] = {OSM_SFT, KC_SPACE, COMBO_END};
 
-// combo_t key_combos[] = {
-//     COMBO(esc_combo, KC_ESC),
-// };
+combo_t key_combos[] = {
+    COMBO(esc_combo, KC_ESC),
+};
 
 #define __ KC_TRNS
 #define XX KC_NO
@@ -63,7 +63,14 @@ const uint16_t PROGMEM esc_combo[] = {OSM_SFT, KC_SPACE, COMBO_END};
 #define SFT_8 LSFT(KC_8)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_5x6_5(
+  [0] = LAYOUT_5x6_5(/*
+       esc f1  f2  f3  f4  f5                       f6  f7  f8  f9  f10 esc
+       --- '   ,   u   c   v                        q   f   d   l   y   /
+       --- a   o   e   s   g                        b   n   t   r   i   -
+       rst :   x   .   w   z                        p   h   m   k   j   rst
+               f11 f12     sft (2) tg1     --- ret  spc     up  dwn
+                               (4) ---     --- ---
+       */
        KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
            __ , KC_QUOT, KC_COMM,    KC_U,   KC_C,  KC_V,     KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
            __ ,   GUI_A,   ALT_O,   LT3_E,  CTL_S,  KC_G,     KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
@@ -100,10 +107,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                           __  ,    __  ,       __  ,    __ ),
 
   [4] = LAYOUT_5x6_5( // brightness volume keeb-rgb
-        XX,      XX,   RGB_VAI,  RGB_M_P,      XX,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX, RGB_SAD,   RGB_TOG,  RGB_SAI,      XX,      XX,       XX, KC_BRIU,  KC_VOLU,       XX,      XX,      XX,
-        XX,      XX,   RGB_VAD,       XX,      XX,      XX,       XX,      XX,  KC_MUTE,       XX,      XX,      XX,
-        XX,      XX,        XX,       XX,      XX,      XX,       XX, KC_BRID,  KC_VOLD,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,  RGB_VAI, RGB_M_P,     XX,       XX, KC_BRIU,  KC_VOLU,       XX,      XX,      XX,
+        XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,  KC_MUTE,       XX,      XX,      XX,
+        XX,      XX,        XX,  RGB_VAD,      XX,     XX,       XX, KC_BRID,  KC_VOLD,       XX,      XX,      XX,
+
+           __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
+                                          __  ,    __  ,       __  ,    __ ),
+  
+  [5] = LAYOUT_5x6_5( // brightness volume keeb-rgb
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,  RGB_VAI, RGB_M_P,     XX,       XX, KC_BRIU,  KC_VOLU,       XX,      XX,      XX,
+        XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,  KC_MUTE,       XX,      XX,      XX,
+        XX,      XX,        XX,  RGB_VAD,      XX,     XX,       XX, KC_BRID,  KC_VOLD,       XX,      XX,      XX,
+
+           __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
+                                          __  ,    __  ,       __  ,    __ ),
+  
+  [6] = LAYOUT_5x6_5( // brightness volume keeb-rgb
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,  RGB_VAI, RGB_M_P,     XX,       XX, KC_BRIU,  KC_VOLU,       XX,      XX,      XX,
+        XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,  KC_MUTE,       XX,      XX,      XX,
+        XX,      XX,        XX,  RGB_VAD,      XX,     XX,       XX, KC_BRID,  KC_VOLD,       XX,      XX,      XX,
+
+           __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
+                                          __  ,    __  ,       __  ,    __ ),
+  
+  [7] = LAYOUT_5x6_5( // brightness volume keeb-rgb
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,  RGB_VAI, RGB_M_P,     XX,       XX, KC_BRIU,  KC_VOLU,       XX,      XX,      XX,
+        XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,  KC_MUTE,       XX,      XX,      XX,
+        XX,      XX,        XX,  RGB_VAD,      XX,     XX,       XX, KC_BRID,  KC_VOLD,       XX,      XX,      XX,
+
+           __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
+                                          __  ,    __  ,       __  ,    __ ),
+  
+  [8] = LAYOUT_5x6_5( // brightness volume keeb-rgb
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,  RGB_VAI, RGB_M_P,     XX,       XX, KC_BRIU,  KC_VOLU,       XX,      XX,      XX,
+        XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,  KC_MUTE,       XX,      XX,      XX,
+        XX,      XX,        XX,  RGB_VAD,      XX,     XX,       XX, KC_BRID,  KC_VOLD,       XX,      XX,      XX,
 
            __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,       __  ,    __ ),
