@@ -88,7 +88,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,       __  ,    __ ),
 
-  [2] = LAYOUT_5x6_5( // SYMBOLS
+  [2] = LAYOUT_5x6_5(/*
+        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  .   {   __                       __  }   __  __  __  __
+        __ `   /   (   [   del                      bs  ]   )   \   :   __
+        __ __  __  <   __  __                       __  =   >   __  __  __
+               __  __      sft (2) tg1     ___ ret  spc     up  dwn
+                               (4) ___     ___ ___
+       */
         XX,      XX,        XX,       XX,      XX,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
         XX,      XX,        XX,   KC_DOT, KC_LCBR,      XX,       XX,      KC_RCBR,  XX,       KC_PIPE, XX,      XX,
         XX,  KC_GRV,  KC_SLASH,  KC_LPRN, KC_LBRC,  KC_DEL,       KC_BSPC, KC_RBRC,  KC_RPRN,  KC_BSLS, KC_COLN, XX,
