@@ -62,6 +62,74 @@ combo_t key_combos[] = {
 #define SFT_7 LSFT(KC_7)
 #define SFT_8 LSFT(KC_8)
 
+// 
+
+enum my_keycodes {
+  MOUSE_BISECT_LEFT = SAFE_RANGE,
+  MOUSE_BISECT_RIGHT,
+  MOUSE_BISECT_UP,
+  MOUSE_BISECT_DOWN,
+  MOUSE_BISECT_CENTER,
+};
+
+#define MB_LEFT MOUSE_BISECT_LEFT
+#define MB_RGHT MOUSE_BISECT_RIGHT
+#define MB_UP   MOUSE_BISECT_UP
+#define MB_DOWN MOUSE_BISECT_DOWN
+#define MB_CNTR MOUSE_BISECT_CENTER
+
+
+/* @see  https://docs.qmk.fm/#/custom_quantum_functions?id=example-process_record_user-implementation */
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case MOUSE_BISECT_LEFT:
+      if (record->event.pressed) {
+        // Do something when pressed
+      }
+      return false; // Skip all further processing of this key
+    case MOUSE_BISECT_RIGHT:
+      if (record->event.pressed) {
+        // Do something when pressed
+      }
+      return false; // Skip all further processing of this key
+    case MOUSE_BISECT_UP:
+      if (record->event.pressed) {
+        // Do something when pressed
+      }
+      return false; // Skip all further processing of this key
+    case MOUSE_BISECT_DOWN:
+      if (record->event.pressed) {
+        // Do something when pressed
+      }
+      return false; // Skip all further processing of this key
+    case MOUSE_BISECT_CENTER:
+      if (record->event.pressed) {
+        // TODO extract function
+        // digitizer_in_range_on();
+        // digitizer_set_position(0.5, 0.5);
+        // SEND_STRING("press ");
+        // digitizer_tip_switch_on();
+
+        digitizer_state.in_range = true;
+        digitizer_state.x = 0;
+        digitizer_state.y = 0;
+        digitizer_state.tip = true;
+        digitizer_state.dirty = true;
+        digitizer_flush();
+      } else {
+        // SEND_STRING("release ");
+        // digitizer_tip_switch_off();
+        digitizer_state.in_range = false;
+        digitizer_state.tip = false;
+        digitizer_state.dirty = true;
+        digitizer_flush();
+      }
+      return false; // Skip all further processing of this key
+    default:
+      return true; // Process all other keycodes normally
+  }
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_5x6_5(/*
        esc f1  f2  f3  f4  f5                       f6  f7  f8  f9  f10 esc
@@ -74,9 +142,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
            __ , KC_QUOT, KC_COMM,    KC_U,   KC_C,  KC_V,     KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
            __ ,   GUI_A,   ALT_O,   LT3_E,  CTL_S,  KC_G,     KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
-       QK_BOOT, KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   QK_BOOT,
+       QK_BOOT, KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   MB_CNTR,
 
-       KC_F11, KC_F12,    OSM_SFT ,  OSL(2) , TG(1)  ,    KC_NO  , KC_ENTER  , KC_SPACE,   KC_UP, KC_DOWN,
+       KC_F11, KC_F12,    OSM_SFT ,  OSL(2) , TG(1)  ,    KC_NO  , KC_ENTER  , KC_SPACE,   KC_MS_UP, KC_MS_DOWN,
                                      OSL(4) , KC_NO  ,    KC_NO  , KC_NO), 
 
   [1] = LAYOUT_5x6_5( // qwerty for Russian
