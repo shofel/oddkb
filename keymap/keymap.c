@@ -4,6 +4,7 @@
 // TODO combo mods
 // TODO mouse control
 // TODO arrow up + 
+// TODO type "make" + arrow up
 
 #include QMK_KEYBOARD_H
 
@@ -50,13 +51,7 @@
 
 #define OSM_SFT OSM(MOD_LSFT)
 
-// Combos.
-
-const uint16_t PROGMEM esc_combo[] = {OSM_SFT, KC_SPACE, COMBO_END};
-
-combo_t key_combos[] = {
-    COMBO(esc_combo, KC_ESC),
-};
+/* Key aliases */
 
 #define __ KC_TRNS
 #define XX KC_NO
@@ -86,6 +81,21 @@ enum my_layer_names {
 #define TG_QWER TG(L_QWERTY)
 #define OSL_SYM OSL(L_SYMBOLS)
 #define OSL_SYS OSL(L_RGB_SYSTEM)
+#define MO_MOUS MO(L_MOUSE)
+
+/* Combos */
+
+#define COMBO_ONLY_FROM_LAYER 0
+
+const uint16_t PROGMEM esc_combo[] = {OSM_SFT, KC_SPACE, COMBO_END};
+const uint16_t PROGMEM mouse_combo[] = {OSL_SYM,OSL_SYS, COMBO_END};
+
+combo_t key_combos[] = {
+  COMBO(esc_combo, KC_ESC),
+  COMBO(mouse_combo, MO_MOUS)
+};
+
+/* The keymap */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_BOO] = LAYOUT_5x6_5(/* BOO LAYOUT
@@ -124,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XX,      XX,        XX,       XX,      XX,      XX,       XX,      XX,       XX,       XX,      XX,      XX,
         XX,      XX,        XX,   KC_DOT, KC_LCBR,      XX,       XX,      KC_RCBR,  XX,       KC_PIPE, XX,      XX,
         XX,  KC_GRV,  KC_SLASH,  KC_LPRN, KC_LBRC,  KC_DEL,       KC_BSPC, KC_RBRC,  KC_RPRN,  KC_BSLS, KC_COLN, XX,
-        XX,      XX,        XX,  KC_LABK,      XX,      XX,       XX,       KC_EQL,  KC_RABK,       XX,      XX,      XX,
+        XX,      XX,        XX,  KC_LABK, KC_PLUS,      XX,       XX,       KC_EQL,  KC_RABK,       XX,      XX,      XX,
 
            __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,       __  ,    __ ),
@@ -163,16 +173,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   
   [L_MOUSE] = LAYOUT_5x6_5(/*
         __ __  __  __  __  __                       __  __  __  __  __  __
-        __ __  __  __  __  __                       __  __  __  __  __  __
-        __ __  __  __  __  __                       __  __  __  __  __  __
-        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  __  __  __                       __  w_^ ↑   b2  __  __
+        __ __  __  __  __  __                       __  <-- b1  --> __  __
+        __ __  __  __  __  __                       __  w_v dn  __  __  __
                __  __      sft ___ ___     ___ ___  ___       __  __
                                ___ ___     ___ ___
        */
         XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX, KC_WH_U,  KC_MS_U,  KC_BTN2,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX, KC_MS_L,  KC_BTN1,  KC_MS_R,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX, KC_WH_D,  KC_MS_D,       XX,      XX,      XX,
 
            __ ,     __ ,         __ ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,          __  ,    __ ),
