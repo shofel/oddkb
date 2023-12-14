@@ -8,21 +8,6 @@
 
 #include QMK_KEYBOARD_H
 
-// TODO prove and cleanup
-// In hope for the backlight :D
-// Disable glow effects to save space
-#undef RGBLIGHT_ANIMATIONS
-#undef RGBLIGHT_EFFECT_BREATHING
-#undef RGBLIGHT_EFFECT_RAINBOW_MOOD
-#undef RGBLIGHT_EFFECT_RAINBOW_SWIRL
-#undef RGBLIGHT_EFFECT_SNAKE
-#undef RGBLIGHT_EFFECT_KNIGHT
-#undef RGBLIGHT_EFFECT_CHRISTMAS
-#undef RGBLIGHT_EFFECT_STATIC_GRADIENT
-#undef RGBLIGHT_EFFECT_RGB_TEST
-#undef RGBLIGHT_EFFECT_ALTERNATING
-#undef RGBLIGHT_EFFECT_TWINKLE
-
 // Home-row mods (Boo).
 // TODO rename LT3
 //
