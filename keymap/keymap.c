@@ -163,44 +163,65 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   
   [L_MOUSE] = LAYOUT_5x6_5(/*
         __ __  __  __  __  __                       __  __  __  __  __  __
-        __ __  __  __  __  __                       __  }   __  __  __  __
-        __ __  __  __  __  __                       __ s  ]   )   \   :   __
-        __ __  __  __  __  __                       __ __ =   >   __  __  __
+        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  __  __  __                       __  __  __  __  __  __
                __  __      sft ___ ___     ___ ___  ___       __  __
                                ___ ___     ___ ___
        */
         XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX,      XX,        XX,  RGB_VAI, RGB_M_P,     XX,       XX, KC_BRIU,  KC_VOLU,       XX,      XX,      XX,
-        XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,  KC_MUTE,       XX,      XX,      XX,
-        XX,      XX,        XX,  RGB_VAD,      XX,     XX,       XX, KC_BRID,  KC_VOLD,       XX,      XX,      XX,
-
-           __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
-                                          __  ,    __  ,       __  ,    __ ),
-  
-  [L_6] = LAYOUT_5x6_5(
         XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX,      XX,        XX,  RGB_VAI, RGB_M_P,     XX,       XX, KC_BRIU,  KC_VOLU,       XX,      XX,      XX,
-        XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,  KC_MUTE,       XX,      XX,      XX,
-        XX,      XX,        XX,  RGB_VAD,      XX,     XX,       XX, KC_BRID,  KC_VOLD,       XX,      XX,      XX,
-
-           __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
-                                          __  ,    __  ,       __  ,    __ ),
-  
-  [L_7] = LAYOUT_5x6_5(
         XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX,      XX,        XX,  RGB_VAI, RGB_M_P,     XX,       XX, KC_BRIU,  KC_VOLU,       XX,      XX,      XX,
-        XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,  KC_MUTE,       XX,      XX,      XX,
-        XX,      XX,        XX,  RGB_VAD,      XX,     XX,       XX, KC_BRID,  KC_VOLD,       XX,      XX,      XX,
-
-           __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
-                                          __  ,    __  ,       __  ,    __ ),
-  
-  [L_8] = LAYOUT_5x6_5(
         XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX,      XX,        XX,  RGB_VAI, RGB_M_P,     XX,       XX, KC_BRIU,  KC_VOLU,       XX,      XX,      XX,
-        XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,  KC_MUTE,       XX,      XX,      XX,
-        XX,      XX,        XX,  RGB_VAD,      XX,     XX,       XX, KC_BRID,  KC_VOLD,       XX,      XX,      XX,
 
-           __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
-                                          __  ,    __  ,       __  ,    __ ),
+           __ ,     __ ,         __ ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
+                                          __  ,    __  ,          __  ,    __ ),
+  
+  [L_6] = LAYOUT_5x6_5(/*
+        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  __  __  __                       __  __  __  __  __  __
+               __  __      __  ___ ___     ___ ___  ___       __  __
+                               ___ ___     ___ ___
+       */
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+
+           __ ,     __ ,         __ ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
+                                          __  ,    __  ,          __  ,    __ ),
+  
+  [L_7] = LAYOUT_5x6_5(/*
+        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  __  __  __                       __  __  __  __  __  __
+               __  __      __  ___ ___     ___ ___  ___       __  __
+                               ___ ___     ___ ___
+       */
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+
+           __ ,     __ ,         __ ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
+                                          __  ,    __  ,          __  ,    __ ),
+  
+  [L_8] = LAYOUT_5x6_5(/*
+        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  __  __  __                       __  __  __  __  __  __
+        __ __  __  __  __  __                       __  __  __  __  __  __
+               __  __      __  ___ ___     ___ ___  ___       __  __
+                               ___ ___     ___ ___
+       */
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+
+           __ ,     __ ,         __ ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
+                                          __  ,    __  ,          __  ,    __ ),
  };
