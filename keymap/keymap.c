@@ -5,8 +5,22 @@
 // TODO mouse control
 // TODO arrow up + 
 // TODO type "make" + arrow up
+// FIXME stuck in SYM mode after MOUS
 
 #include QMK_KEYBOARD_H
+
+/* Mouse settings */
+
+// @see https://docs.qmk.fm/#/feature_mouse_keys?id=inertia-mode
+#define MOUSEKEY_INERTIA 	    undefined
+#define MOUSEKEY_DELAY 	      150
+#define MOUSEKEY_INTERVAL 	  16
+#define MOUSEKEY_MAX_SPEED 	  32
+#define MOUSEKEY_TIME_TO_MAX 	32
+#define MOUSEKEY_FRICTION 	  24
+#define MOUSEKEY_MOVE_DELTA 	12
+
+/* Home-row mods */
 
 // Home-row mods (Boo).
 // TODO rename LT3
