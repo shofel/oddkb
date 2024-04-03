@@ -1,7 +1,6 @@
 /* A layout for the Dactyl Manuform 5x6_5 Keyboard */
 
 // TODO combo mods
-// TODO mouse: precise mode
 // FIXME stuck in SYM mode after MOUS
 // TODO solve accidental qwerty activation
 // TODO make a shared layout for cantor and dactyl

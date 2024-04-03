@@ -34,17 +34,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Mouse settings
 
+// undef values from the keyboard
 #undef MOUSEKEY_INTERVAL
 #undef MOUSEKEY_DELAY
 #undef MOUSEKEY_TIME_TO_MAX
 #undef MOUSEKEY_MAX_SPEED
 #undef MOUSEKEY_WHEEL_DELAY
 
-// // @see https://docs.qmk.fm/#/feature_mouse_keys?id=inertia-mode
+// @see https://docs.qmk.fm/#/feature_mouse_keys?id=inertia-mode
 #define MOUSEKEY_INERTIA
-#define MOUSEKEY_DELAY 	      150
-#define MOUSEKEY_INTERVAL 	  16
-#define MOUSEKEY_MAX_SPEED 	  32
-#define MOUSEKEY_TIME_TO_MAX 	32
-#define MOUSEKEY_FRICTION 	  24
-#define MOUSEKEY_MOVE_DELTA 	12
+#define MOUSEKEY_DELAY       150
+#define MOUSEKEY_INTERVAL    16
+#define MOUSEKEY_MAX_SPEED   16
+#define MOUSEKEY_TIME_TO_MAX 16
+#define MOUSEKEY_FRICTION    40
+#define MOUSEKEY_MOVE_DELTA  4
