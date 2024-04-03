@@ -9,17 +9,6 @@
 
 #include QMK_KEYBOARD_H
 
-/* Mouse settings */
-
-// @see https://docs.qmk.fm/#/feature_mouse_keys?id=inertia-mode
-#define MOUSEKEY_INERTIA 	    undefined
-#define MOUSEKEY_DELAY 	      150
-#define MOUSEKEY_INTERVAL 	  16
-#define MOUSEKEY_MAX_SPEED 	  32
-#define MOUSEKEY_TIME_TO_MAX 	32
-#define MOUSEKEY_FRICTION 	  24
-#define MOUSEKEY_MOVE_DELTA 	12
-
 /* Home-row mods */
 
 // Home-row mods (Boo).
@@ -173,14 +162,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_MOUSE] = LAYOUT_5x6_5(/*
         __ __  __  __  __  __                       __  __  __  __  __  __
         __ __  __  __  __  __                       __  w_^ ↑   b2  __  __
-        __ __  __  __  __  __                       __  <-- b1  --> __  __
+        __ __  __  __  __  __                       __  <-- b1  --> b3  __
         __ __  __  __  __  __                       __  w_v dn  __  __  __
                __  __      sft ___ ___     ___ ___  ___       __  __
                                ___ ___     ___ ___
        */
         XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
         XX,      XX,        XX,       XX,      XX,     XX,       XX, KC_WH_U,  KC_MS_U,  KC_BTN2,      XX,      XX,
-        XX,      XX,        XX,       XX,      XX,     XX,       XX, KC_MS_L,  KC_BTN1,  KC_MS_R,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX, KC_MS_L,  KC_BTN1,  KC_MS_R, KC_BTN3,      XX,
         XX,      XX,        XX,       XX,      XX,     XX,       XX, KC_WH_D,  KC_MS_D,       XX,      XX,      XX,
 
            __ ,     __ ,         __ ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,

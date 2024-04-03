@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define EE_HANDS
 #define SPLIT_USB_DETECT
 
+
 // Lighting
 #define WS2812_DI_PIN D1
 #define RGBLED_NUM 18
@@ -29,3 +30,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_DEFAULT_HUE 85
 #define RGBLIGHT_SPLIT
 #define RGBLIGHT_SLEEP
+
+
+// Mouse settings
+
+#undef MOUSEKEY_INTERVAL
+#undef MOUSEKEY_DELAY
+#undef MOUSEKEY_TIME_TO_MAX
+#undef MOUSEKEY_MAX_SPEED
+#undef MOUSEKEY_WHEEL_DELAY
+
+// // @see https://docs.qmk.fm/#/feature_mouse_keys?id=inertia-mode
+#define MOUSEKEY_INERTIA
+#define MOUSEKEY_DELAY 	      150
+#define MOUSEKEY_INTERVAL 	  16
+#define MOUSEKEY_MAX_SPEED 	  32
+#define MOUSEKEY_TIME_TO_MAX 	32
+#define MOUSEKEY_FRICTION 	  24
+#define MOUSEKEY_MOVE_DELTA 	12
