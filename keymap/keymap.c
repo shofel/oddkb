@@ -1,9 +1,8 @@
 /* A layout for the Dactyl Manuform 5x6_5 Keyboard */
 
 // TODO combo mods
-// FIXME stuck in SYM mode after MOUS
-// TODO solve accidental qwerty activation
 // TODO make a shared layout for cantor and dactyl
+// TODO better way to type a plus
 
 #include QMK_KEYBOARD_H
 
@@ -64,15 +63,16 @@ enum my_layer_names {
 
 #define TG_QWER TG(L_QWERTY)
 #define OSL_SYM OSL(L_SYMBOLS)
-#define OSL_SYS OSL(L_RGB_SYSTEM)
+#define MO_SYS  MO(L_RGB_SYSTEM)
 #define MO_MOUS MO(L_MOUSE)
 
 /* Combos */
 
 #define COMBO_ONLY_FROM_LAYER 0
 
-const uint16_t PROGMEM esc_combo[] = {OSM_SFT, KC_SPACE, COMBO_END};
-const uint16_t PROGMEM mouse_combo[] = {OSL_SYM,OSL_SYS, COMBO_END};
+
+const uint16_t PROGMEM esc_combo[] =   {OSM_SFT, KC_SPACE, COMBO_END};
+const uint16_t PROGMEM mouse_combo[] = {OSL_SYM, MO_SYS,   COMBO_END};
 
 combo_t key_combos[] = {
   COMBO(esc_combo, KC_ESC),
@@ -84,23 +84,23 @@ combo_t key_combos[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_BOO] = LAYOUT_5x6_5(/* BOO LAYOUT
        esc f1  f2  f3  f4  f5                       f6  f7  f8  f9  f10 esc
-       --- '   ,   u   c   v                        q   f   d   l   y   /
+       QWE '   ,   u   c   v                        q   f   d   l   y   /
        --- a   o   e   s   g                        b   n   t   r   i   -
        rst :   x   .   w   z                        p   h   m   k   j   rst
-               f11 f12     sft SYM QWE     --- ret  spc     up  dwn
+               f11 f12     sft SYM ---     --- ret  spc     up  dwn
                                SYS ---     --- ---
        */
        KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_ESC,
-           __ , KC_QUOT, KC_COMM,    KC_U,   KC_C,  KC_V,     KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
+       TG_QWER, KC_QUOT, KC_COMM,    KC_U,   KC_C,  KC_V,     KC_Q,  KC_F,  KC_D,  KC_L,  KC_Y,   KC_SLASH,
            __ ,   GUI_A,   ALT_O,   LT3_E,  CTL_S,  KC_G,     KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
        QK_BOOT, KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   QK_BOOT,
 
-       KC_F11, KC_F12,    OSM_SFT , OSL_SYM , TG_QWER,    KC_NO  , KC_ENTER  , KC_SPACE,   KC_UP, KC_DOWN,
-                                    OSL_SYS , KC_NO  ,    KC_NO  , KC_NO), 
+       KC_F11, KC_F12,    OSM_SFT , OSL_SYM ,      XX,        XX , KC_ENTER  , KC_SPACE,   KC_UP, KC_DOWN,
+                                    MO_SYS  ,      XX,        XX , KC_NO), 
 
   [L_QWERTY] = LAYOUT_5x6_5(
        KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8,   KC_F10, KC_MINUS, KC_RBRC,
-           XX ,    KC_Q,    KC_W,    KC_E,   KC_R,  KC_T,     KC_Y,  KC_U,  KC_I,    KC_O,   KC_P,     KC_LBRC,
+       TG_QWER,    KC_Q,    KC_W,    KC_E,   KC_R,  KC_T,     KC_Y,  KC_U,  KC_I,    KC_O,   KC_P,     KC_LBRC,
        KC_GRV ,   GUI_A,   ALT_S,   LT3_D,  CTL_F,  KC_G,     KC_H,  CTL_J, LT3_K,   ALT_L,  GUI_SCLN, KC_QUOTE,
            XX ,    KC_Z,    KC_X,    KC_C,   KC_V,  KC_B,     KC_N,  KC_M,  KC_COMM, KC_DOT, KC_SLSH,  KC_NO,
 
