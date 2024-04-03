@@ -1,10 +1,7 @@
 /* A layout for the Dactyl Manuform 5x6_5 Keyboard */
 
-// TODO dvorak layer
 // TODO combo mods
-// TODO mouse control
-// TODO arrow up + 
-// TODO type "make" + arrow up
+// TODO mouse: precise mode
 // FIXME stuck in SYM mode after MOUS
 
 #include QMK_KEYBOARD_H
@@ -12,7 +9,6 @@
 /* Home-row mods */
 
 // Home-row mods (Boo).
-// TODO rename LT3
 //
 #define GUI_A LGUI_T(KC_A)
 #define ALT_O LALT_T(KC_O)
@@ -25,7 +21,6 @@
 #define GUI_I RGUI_T(KC_I)
 
 // Home-row mods (qwerty).
-// TODO rename LT3
 //
 #define GUI_A LGUI_T(KC_A)
 #define ALT_S LALT_T(KC_S)
@@ -143,11 +138,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,       __  ,    __ ),
 
-  [L_RGB_SYSTEM] = LAYOUT_5x6_5(/* TODO replace arrows with unicode
+  [L_RGB_SYSTEM] = LAYOUT_5x6_5(/*
         __  __  __  __  __  __                       __  __  __  __  __  __
-        __  __  hu^ br^ mod __                       __  br^ vup __  __  __
-        __  __  sav tog sa^ __                       __  __  mut __  __  __
-        __  __  huv brv m_p __                       __  brv vdn __  __  __
+        __  __  hu↑ br↑ mod __                       __  br↑ vl↑ __  __  __
+        __  __  sa↓ tog sa↑ __                       __  __  mut __  __  __
+        __  __  hu↓ br↓ m_p __                       __  br↓ vl↓ __  __  __
                 __  __      sft ___ ___     ___ ___  ___     __  __
                                 ___ ___     ___ ___
        */
@@ -161,9 +156,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   
   [L_MOUSE] = LAYOUT_5x6_5(/*
         __ __  __  __  __  __                       __  __  __  __  __  __
-        __ __  __  __  __  __                       __  w_^ ↑   b2  __  __
-        __ __  __  __  __  __                       __  <-- b1  --> b3  __
-        __ __  __  __  __  __                       __  w_v dn  __  __  __
+        __ __  __  __  __  __                       __   w↑ ↑   b2  __  __
+        __ __  __  b1  __  __                       __  <-- b1  --> b3  __
+        __ __  __  __  __  __                       __   w↓ ↓   __  __  __
                __  __      sft ___ ___     ___ ___  ___       __  __
                                ___ ___     ___ ___
        */
