@@ -97,8 +97,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_F11, KC_F12,    OSM_SFT , OSL_SYM , TG_QWER,    KC_NO  , KC_ENTER  , KC_SPACE,   KC_UP, KC_DOWN,
                                     OSL_SYS , KC_NO  ,    KC_NO  , KC_NO), 
 
-  [L_QWERTY] = LAYOUT_5x6_5( // TODO why f-keys are replaced with shifted nums?
-       KC_ESC ,   SFT_1,   SFT_2,   SFT_3,  SFT_4, SFT_5,     SFT_6, SFT_7, SFT_8,   XX,     KC_MINUS, KC_RBRC,
+  [L_QWERTY] = LAYOUT_5x6_5(
+       KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8,   KC_F10, KC_MINUS, KC_RBRC,
            XX ,    KC_Q,    KC_W,    KC_E,   KC_R,  KC_T,     KC_Y,  KC_U,  KC_I,    KC_O,   KC_P,     KC_LBRC,
        KC_GRV ,   GUI_A,   ALT_S,   LT3_D,  CTL_F,  KC_G,     KC_H,  CTL_J, LT3_K,   ALT_L,  GUI_SCLN, KC_QUOTE,
            XX ,    KC_Z,    KC_X,    KC_C,   KC_V,  KC_B,     KC_N,  KC_M,  KC_COMM, KC_DOT, KC_SLSH,  KC_NO,
