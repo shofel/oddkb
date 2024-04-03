@@ -3,6 +3,8 @@
 // TODO combo mods
 // TODO mouse: precise mode
 // FIXME stuck in SYM mode after MOUS
+// TODO solve accidental qwerty activation
+// TODO make a shared layout for cantor and dactyl
 
 #include QMK_KEYBOARD_H
 
@@ -163,9 +165,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                ___ ___     ___ ___
        */
         XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX,      XX,        XX,       XX,      XX,     XX,       XX, KC_WH_U,  KC_MS_U,  KC_BTN2,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX, KC_WH_U,  KC_MS_U,  KC_WH_D,      XX,      XX,
         XX,      XX,   KC_LALT,  KC_BTN1, KC_LCTL,     XX,       XX, KC_MS_L,  KC_BTN1,  KC_MS_R, KC_BTN3,      XX,
-        XX,      XX,        XX,       XX,      XX,     XX,       XX, KC_WH_D,  KC_MS_D,       XX,      XX,      XX,
+        XX,      XX,        XX,       XX,      XX,     XX,       XX, KC_BTN2,  KC_MS_D,       XX,      XX,      XX,
 
            __ ,     __ ,    KC_LSFT ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,          __  ,    __ ),
