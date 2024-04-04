@@ -17,11 +17,11 @@
 //
 #define GUI_A LGUI_T(KC_A)
 #define ALT_O LALT_T(KC_O)
-#define LT3_E LT(3, KC_E)
+#define LT3_E LT(L_NUM_NAV, KC_E)
 #define CTL_S LCTL_T(KC_S)
 //
 #define CTL_N RCTL_T(KC_N)
-#define LT3_T LT(3, KC_T)
+#define LT3_T LT(L_NUM_NAV, KC_T)
 #define ALT_R RALT_T(KC_R)
 #define GUI_I RGUI_T(KC_I)
 
@@ -29,11 +29,11 @@
 //
 #define GUI_A LGUI_T(KC_A)
 #define ALT_S LALT_T(KC_S)
-#define LT3_D LT(3, KC_D)
+#define LT3_D LT(L_NUM_NAV, KC_D)
 #define CTL_F LCTL_T(KC_F)
 //
 #define CTL_J RCTL_T(KC_J)
-#define LT3_K LT(3, KC_K)
+#define LT3_K LT(L_NUM_NAV, KC_K)
 #define ALT_L RALT_T(KC_L)
 #define GUI_SCLN RGUI_T(KC_SCLN)
 
