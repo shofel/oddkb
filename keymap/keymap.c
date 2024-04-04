@@ -2,7 +2,12 @@
 
 // TODO combo mods
 // TODO make a shared layout for cantor and dactyl
-// TODO better way to type a plus
+//      - transform dactyl keymap to a cantor's
+//        - make a text transform program
+//        - which removes keys not presented on cantor
+//          - from the comment
+//          - from the code
+//        - which is covered by tests
 
 #include QMK_KEYBOARD_H
 
@@ -54,16 +59,16 @@ enum my_layer_names {
   L_QWERTY,
   L_SYMBOLS,
   L_NUM_NAV,
-  L_RGB_SYSTEM,
+  L_FKEYS_SYSTEM,
   L_MOUSE,
-  L_6,
+  L_RGB,
   L_7,
   L_8,
 };
 
 #define TG_QWER TG(L_QWERTY)
 #define OSL_SYM OSL(L_SYMBOLS)
-#define MO_SYS  MO(L_RGB_SYSTEM)
+#define MO_SYS  MO(L_FKEYS_SYSTEM)
 #define MO_MOUS MO(L_MOUSE)
 
 /* Combos */
@@ -95,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            __ ,   GUI_A,   ALT_O,   LT3_E,  CTL_S,  KC_G,     KC_B,  CTL_N, LT3_T, ALT_R, GUI_I,  KC_MINUS,
        QK_BOOT, KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   QK_BOOT,
 
-       KC_F11, KC_F12,    OSM_SFT , OSL_SYM ,      XX,        XX , KC_ENTER  , KC_SPACE,   KC_UP, KC_DOWN,
+  /*S*/KC_F11, KC_F12,/*E*/OSM_SFT , OSL_SYM ,      XX,        XX , KC_ENTER  , KC_SPACE,   KC_UP, KC_DOWN,
                                     MO_SYS  ,      XX,        XX , KC_NO), 
 
   [L_QWERTY] = LAYOUT_5x6_5(
@@ -139,22 +144,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,       __  ,    __ ),
 
-  [L_RGB_SYSTEM] = LAYOUT_5x6_5(/*
+  [L_FKEYS_SYSTEM] = LAYOUT_5x6_5(/*
         __  __  __  __  __  __                       __  __  __  __  __  __
-        __  __  hu↑ br↑ mod __                       __  br↑ vl↑ __  __  __
-        __  __  sa↓ tog sa↑ __                       __  __  mut __  __  __
-        __  __  hu↓ br↓ m_p __                       __  br↓ vl↓ __  __  __
+        __ F11  F7  F8  F9  __                       __  br↑ vl↑ __  __  __
+        __ F11  F4  F5  F6  __                       __  __  mut __  __  __
+        __ F10  F1  F2  F3  __                       __  br↓ vl↓ __  __  __
                 __  __      sft ___ ___     ___ ___  ___     __  __
                                 ___ ___     ___ ___
        */
         XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX,      XX,   RGB_HUI,  RGB_VAI, RGB_MOD,     XX,       XX, KC_BRIU,  KC_VOLU,       XX,      XX,      XX,
-        XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,  KC_MUTE,       XX,      XX,      XX,
-        XX,      XX,   RGB_HUD,  RGB_VAD, RGB_M_P,     XX,       XX, KC_BRID,  KC_VOLD,       XX,      XX,      XX,
+        XX,  KC_F12,     KC_F7,    KC_F8,   KC_F9,     XX,       XX, KC_BRIU,  KC_VOLU,       XX,      XX,      XX,
+        XX,  KC_F11,     KC_F4,    KC_F5,   KC_F6,     XX,       XX,      XX,  KC_MUTE,       XX,      XX,      XX,
+        XX,  KC_F10,     KC_F1,    KC_F2,   KC_F3,     XX,       XX, KC_BRID,  KC_VOLD,       XX,      XX,      XX,
 
            __ ,     __ ,    KC_LSFT ,     __  ,    __  ,       __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,       __  ,    __ ),
-  
+
   [L_MOUSE] = LAYOUT_5x6_5(/*
         __ __  __  __  __  __                       __  __  __  __  __  __
         __ __  __  __  __  __                       __  w↑  ↑   b2  __  __
@@ -170,29 +175,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
            __ ,     __ ,    KC_LSFT ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,          __  ,    __ ),
-  
-  [L_6] = LAYOUT_5x6_5(/*
-        __ __  __  __  __  __                       __  __  __  __  __  __
-        __ __  __  __  __  __                       __  __  __  __  __  __
-        __ __  __  __  __  __                       __  __  __  __  __  __
-        __ __  __  __  __  __                       __  __  __  __  __  __
-               __  __      __  ___ ___     ___ ___  ___       __  __
-                               ___ ___     ___ ___
+
+  [L_RGB] = LAYOUT_5x6_5(/*
+        __  __  __  __  __  __                       __  __  __  __  __  __
+        __  __  hu↑ br↑ mod __                       __  __  __  __  __  __
+        __  __  sa↓ tog sa↑ __                       __  __  __  __  __  __
+        __  __  hu↓ br↓ m_p __                       __  __  __  __  __  __
+                __  __      sft ___ ___     ___ ___  ___     __  __
+                                ___ ___     ___ ___
        */
         XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
-        XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,   RGB_HUI,  RGB_VAI, RGB_MOD,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
+        XX,      XX,   RGB_HUD,  RGB_VAD, RGB_M_P,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
 
-           __ ,     __ ,         __ ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
+           __ ,     __ ,    KC_LSFT ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,          __  ,    __ ),
-  
+
+
   [L_7] = LAYOUT_5x6_5(/*
         __ __  __  __  __  __                       __  __  __  __  __  __
         __ __  __  __  __  __                       __  __  __  __  __  __
         __ __  __  __  __  __                       __  __  __  __  __  __
         __ __  __  __  __  __                       __  __  __  __  __  __
-               __  __      __  ___ ___     ___ ___  ___       __  __
+               __  __      __  ___ ___     ___ ___  ___     __  __
                                ___ ___     ___ ___
        */
         XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
@@ -202,13 +208,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
            __ ,     __ ,         __ ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,          __  ,    __ ),
-  
+
   [L_8] = LAYOUT_5x6_5(/*
         __ __  __  __  __  __                       __  __  __  __  __  __
         __ __  __  __  __  __                       __  __  __  __  __  __
         __ __  __  __  __  __                       __  __  __  __  __  __
         __ __  __  __  __  __                       __  __  __  __  __  __
-               __  __      __  ___ ___     ___ ___  ___       __  __
+               __  __      __  ___ ___     ___ ___  ___     __  __
                                ___ ___     ___ ___
        */
         XX,      XX,        XX,       XX,      XX,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
