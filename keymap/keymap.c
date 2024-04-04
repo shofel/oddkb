@@ -70,18 +70,21 @@ enum my_layer_names {
 #define OSL_SYM OSL(L_SYMBOLS)
 #define MO_SYS  MO(L_FKEYS_SYSTEM)
 #define MO_MOUS MO(L_MOUSE)
+#define TG_RGB  TG(L_RGB)
 
 /* Combos */
 
 #define COMBO_ONLY_FROM_LAYER 0
 
 
-const uint16_t PROGMEM esc_combo[] =   {OSM_SFT, KC_SPACE, COMBO_END};
+const uint16_t PROGMEM esc_combo[]   = {OSM_SFT, KC_SPACE, COMBO_END};
 const uint16_t PROGMEM mouse_combo[] = {OSL_SYM, MO_SYS,   COMBO_END};
+const uint16_t PROGMEM rgb_combo[]   = {OSL_SYM, LT3_E,    COMBO_END};
 
 combo_t key_combos[] = {
   COMBO(esc_combo, KC_ESC),
-  COMBO(mouse_combo, MO_MOUS)
+  COMBO(mouse_combo, MO_MOUS),
+  COMBO(rgb_combo, TG_RGB),
 };
 
 /* The keymap */
@@ -189,7 +192,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
         XX,      XX,   RGB_HUD,  RGB_VAD, RGB_M_P,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
 
-           __ ,     __ ,    KC_LSFT ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
+           __ ,     __ ,     TG_RGB ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,          __  ,    __ ),
 
 
