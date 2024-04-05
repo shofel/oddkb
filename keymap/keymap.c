@@ -72,8 +72,8 @@ enum my_layer_names {
 #define TG_QWER TG(L_QWERTY)
 #define OSL_SYM OSL(L_SYMBOLS)
 #define MO_SYS  MO(L_FKEYS_SYSTEM)
-#define MO_MOUS MO(L_MOUSE)
-#define TG_RGB  TG(L_RGB)
+#define OSL_MOUSE OSL(L_MOUSE)
+#define MO_RGB  MO(L_RGB)
 
 /* Combos */
 
@@ -81,13 +81,13 @@ enum my_layer_names {
 
 
 const uint16_t PROGMEM esc_combo[]   = {OSM_SFT, KC_SPACE, COMBO_END};
-const uint16_t PROGMEM mouse_combo[] = {OSL_SYM, MO_SYS,   COMBO_END};
-const uint16_t PROGMEM rgb_combo[]   = {OSL_SYM, LT3_E,    COMBO_END};
+const uint16_t PROGMEM mouse_combo[] = {OSL_SYM, KC_SPACE, COMBO_END};
+const uint16_t PROGMEM rgb_combo[]   = {OSL_SYM, KC_ENTER, COMBO_END};
 
 combo_t key_combos[] = {
   COMBO(esc_combo, KC_ESC),
-  COMBO(mouse_combo, MO_MOUS),
-  COMBO(rgb_combo, TG_RGB),
+  COMBO(mouse_combo, OSL_MOUSE),
+  COMBO(rgb_combo, MO_RGB),
 };
 
 /* The keymap */
@@ -107,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        QK_BOOT, KC_SCLN,    KC_X,  KC_DOT,   KC_W,  KC_Z,     KC_P,  KC_H,  KC_M,  KC_K,  KC_J,   QK_BOOT,
 
        KC_F11, KC_F12,    OSM_SFT , OSL_SYM ,      XX,        XX , KC_ENTER  , KC_SPACE,   KC_UP, KC_DOWN,
-                                    MO_SYS  ,      XX,        XX , KC_NO), 
+                                    MO_SYS  ,      XX,        XX , MO_SYS), 
 
   [L_QWERTY] = LAYOUT_5x6_5(
        KC_ESC ,   KC_F1,   KC_F2,   KC_F3,  KC_F4, KC_F5,     KC_F6, KC_F7, KC_F8,   KC_F10, KC_MINUS, KC_RBRC,
@@ -195,7 +195,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XX,      XX,   RGB_SAD,  RGB_TOG, RGB_SAI,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
         XX,      XX,   RGB_HUD,  RGB_VAD, RGB_M_P,     XX,       XX,      XX,       XX,       XX,      XX,      XX,
 
-           __ ,     __ ,     TG_RGB ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
+           __ ,     __ ,        __  ,     __  ,    __  ,          __  ,    __  ,    __,          __ ,     __ ,
                                           __  ,    __  ,          __  ,    __ ),
 
 
