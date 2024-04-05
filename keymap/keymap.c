@@ -1,6 +1,5 @@
 /* A layout for the Dactyl Manuform 5x6_5 Keyboard */
 
-// TODO combo mods
 // TODO make a shared layout for cantor and dactyl
 //      - transform dactyl keymap to a cantor's
 //        - make a text transform program
