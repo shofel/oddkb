@@ -1,3 +1,10 @@
+## Fork Note from Shofel
+
+I made  [another repo](https://github.com/shofel/ergohaven-dm5x6) for my keyboards by adapting the Makefile and the keymap from this repo.
+
+
+# The Original Readme
+
 My personal [Dactyl-ManuForm](https://github.com/abstracthat/dactyl-manuform). This repository contains all the resources used to build this keyboard.
 
 
