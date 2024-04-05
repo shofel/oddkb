@@ -8,6 +8,9 @@
 //          - from the comment
 //          - from the code
 //        - which is covered by tests
+// TODO cleanup readme
+//      nix flake run
+//      guide for initial flash for left and right
 
 #include QMK_KEYBOARD_H
 
